@@ -79,16 +79,23 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   let newStr=str;
-  for (let i = 0; i < newStr.length; i++) {
-    let item=newStr.slice(0,1);
-    newStr="";
-    if (!newStr[i].include(item)) {
-      newStr=newStr[i];
-    }
-    console.log(newStr);
-
+  // result.push(str);
+  for (let i = 0; i <= newStr.length; i++) {
+    result.push(str);
+    str=str.slice(1);
     
   }
+  // console.log(newStr);
+  // for (let i = 0; i < newStr.length; i++) {
+  //   let item=newStr.slice(0,1);
+  //   newStr="";
+  //   if (!newStr[i].include(item)) {
+  //     newStr=newStr[i];
+  //   }
+  //   console.log(newStr);
+
+    
+  // }
   
   return result;
 };
@@ -102,7 +109,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  return arr.split('')
+  return arr.split('');
 };
 
 
