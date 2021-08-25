@@ -7,19 +7,19 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-  let longest=0;
-  let index=-1;
-  arr.map((item,idx)=>{
-    if (item.length>longest) {
-      longest=item.length;
-      index=idx
+  let longest = 0;
+  let index = -1;
+  arr.map((item, idx) => {
+    if (item.length > longest) {
+      longest = item.length;
+      index = idx
     }
 
   })
   return index;
 
 };
-  
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -29,7 +29,11 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+  let newArr = arr.map((item) => {
+    // console.log(item[0]);
+    return item[0];
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -41,7 +45,13 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  let newArr = arr.filter((item) => {
+    if (item.includes(":)")) {
+      // console.log(item);
+      return item;
+    }
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,7 +63,14 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  arr.map((item) => {
+    //(123) 456-7890
+    //0123456789
+    // console.log(item.substring(1,4) +item.substring(6,9)+item.substring(10,14) );
+    newArr.push(item.substring(1, 4) + item.substring(6, 9) + item.substring(10, 14));
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,22 +82,47 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  // let str2 = "Abood";
+  let strOdd = "";
+  for (let i = 0; i < str.length; i++) {
+    //check if the number is odd
+    // if (str.charAt(i).charCodeAt(0) % 2 != 0) {
+    if (i % 2 != 0) {
+
+      // console.log("The number is odd.");
+      strOdd = strOdd + str.charAt(i);
+    }
+  }
+  // console.log(str2.charAt(i).charCodeAt(0));
+  // console.log(idx);
+  return strOdd;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 
-
+ 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let flag = true;
+  arr.map((item) => {
+    if (item.includes(":)")) {
+      // console.log(item);
+      return item;
+    }
+    else {
+      flag = false
+    }
+
+  })
+  return flag;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
-
+ 
 Write a function named findAnything that takes in an array of strings, along with a target string. Return an array containing only those strings from the original array that contain the target string.
 ------------------------------------------------------------------------------------------------ */
 
@@ -90,7 +132,7 @@ const findAnything = (arr, target) => {
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
-
+ 
 Write a function named findEvery that takes in an array of strings, along with a target string. Return a Boolean based on whether or not every string in the array contains the target string.
 ------------------------------------------------------------------------------------------------ */
 
@@ -100,13 +142,13 @@ const findEvery = (arr, target) => {
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
-
+ 
 We've been testing a new course enrollment system, and we think we have the bugs worked out, but in the meantime, Brook enrolled himself in a bunch of different classes to test if it was working.
-
+ 
 Write a function named unenrollBrook that takes in a two-dimensional array, where each array represents one course's roster and is an array of strings of the names of the people in that course.
-
+ 
 Return a two-dimensional array with the same roster, but where anyone whose name includes Brook is removed from every course.
-
+ 
 For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again', 'still Brook']] returns [['Actual Person'], ['Human Person']]
 ------------------------------------------------------------------------------------------------ */
 
@@ -116,13 +158,13 @@ const unenrollBrook = (arr) => {
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
-
+ 
 Write a function named sortByDay that takes in an array of strings, each of which represents an event's day and time.
-
+ 
 Return a two-dimensional array that organizes those strings based on the day on which they occur. For example, all events on Monday are in the first array, all events on Tuesday are in the second array, etc.
-
+ 
 If an event takes place on multiple days (i.e. "Dancing on Mondays and Tuesdays"), it should appear in both arrays.
-
+ 
 For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thursday'] returns
 [
   ['Monday'],
@@ -143,9 +185,9 @@ const sortByDay = (arr) => {
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
-
+ 
 Write a function named characterByIndex that takes in an array of strings and returns an array containing the first character of the first string, the second character of the second string, etc.
-
+ 
 For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
@@ -155,20 +197,20 @@ const characterByIndex = (arr) => {
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
-
+ 
 All the code below will verify that your functions are working to solve the challenges.
-
+ 
 DO NOT CHANGE any of the below code.
-
+ 
 Run your tests from the console: jest challenges-13.test.js
-
+ 
 ------------------------------------------------------------------------------------------------ */
 
 describe('Testing challenge 1', () => {
   test('It should return an index position of the longest string', () => {
     const strArray1 = ['Ginger', 'Goose', 'Tangerine', 'Rosie', 'Mario', 'Malaki']
     const strArray2 = [];
-    const strArray3= ['Ginger']
+    const strArray3 = ['Ginger']
 
     expect(longestString(strArray1)).toStrictEqual(2);
     expect(longestString(strArray2)).toStrictEqual(-1);
@@ -176,7 +218,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return the first letter of each element of the array', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
@@ -186,7 +228,7 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return only the strings that contain smiley faces', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
@@ -197,7 +239,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return a standardized set of phone numbers', () => {
     const nums = ['(123) 456-7890', '(222) 222-2222'];
 
@@ -206,7 +248,7 @@ xdescribe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should only return the odd indexed characters from the string', () => {
     expect(onlyOddChars('0123456789')).toStrictEqual('13579');
     expect(onlyOddChars('abcd')).toStrictEqual('bd');
@@ -215,7 +257,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should correctly assess whether all the strings are happy', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
