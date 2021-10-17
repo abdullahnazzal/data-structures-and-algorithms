@@ -113,7 +113,141 @@ def test_linked_List_to_string():
     linked_list.insert(1)
     linked_list.insert(2)
     linked_list.insert(3)
-    actual = linked_list.to_string()
+    actual = linked_list.__str__()
 
     # Assert
+    assert actual == expected
+
+def test_linked_List_append():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.append(6)
+    expected = 6
+
+    #Act
+    actual =linked_list.head.value
+    #Assert
+    assert actual== expected
+
+@pytest.mark.xfail()
+def test_fail_linked_List_append():
+    #Arrange
+    linked_list=LinkedList()
+    # linked_list.insert(1)
+    linked_list.insert(2)
+
+    linked_list.append(6)
+    expected = 6
+    # print(linked_list.__str__())
+    # print(linked_list.head.value)
+
+    #Act
+    actual =linked_list.head.value
+    #Assert
+    assert actual== expected
+def test_linked_List_append_twice():
+    # Arrange
+    expected = 1
+    linked_list = LinkedList()
+
+    # Act
+    linked_list.append(1)
+    linked_list.append(0)
+    node = linked_list.head
+    actual = node.value
+
+    # Assert
+    assert actual == expected
+    assert linked_list.head.next_node.value == 0
+
+def test_linked_List_insert_before_middle_node():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.insert(1)
+    linked_list.insert(2)
+    linked_list.insert(3)
+    linked_list.insert_before(2,4)
+    expected = 4
+    # print(linked_list.head.next_node.value)
+    # print(linked_list.__str__())
+    #Act
+    actual =linked_list.head.next_node.value
+    #Assert
+    assert actual == expected
+
+def test_linked_List_insert_before_first_node():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.insert(1)
+    linked_list.insert(2)
+    linked_list.insert(3)
+    linked_list.insert_before(1,0)
+    expected = 2
+    print(linked_list.head.next_node.value)
+    print(linked_list.__str__())
+    #Act
+    actual = linked_list.head.next_node.value
+    #Assert
+    assert actual == expected
+
+@pytest.mark.xfail()
+def test_fail_linked_List_insert_before():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.insert(1)
+    linked_list.insert(2)
+    linked_list.insert(3)
+    linked_list.insert_before(1,0)
+    expected = 1
+    print(linked_list.head.next_node.value)
+    print(linked_list.__str__())
+    #Act
+    actual = linked_list.head.next_node.value
+    #Assert
+    assert actual == expected
+
+def test_linked_List_insert_after_middle_node():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.insert(1)
+    linked_list.insert(2)
+    linked_list.insert(3)
+    linked_list.insert_after(2,4)
+    expected = 2
+    print(linked_list.head.next_node.value)
+    print(linked_list.__str__())
+    #Act
+    actual =linked_list.head.next_node.value
+    #Assert
+    assert actual == expected
+
+def test_linked_List_insert_after_first_node():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.insert(1)
+    linked_list.insert(2)
+    linked_list.insert(3)
+    linked_list.insert_after(1,22)
+    expected = 2
+    print(linked_list.head.next_node.value)
+    print(linked_list.__str__())
+    #Act
+    actual = linked_list.head.next_node.value
+    #Assert
+    assert actual == expected
+
+@pytest.mark.xfail()
+def test_fail_linked_List_insert_after():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.insert(1)
+    linked_list.insert(2)
+    linked_list.insert(3)
+    linked_list.insert_after(1,22)
+    expected = 1
+    print(linked_list.head.next_node.value)
+    print(linked_list.__str__())
+    #Act
+    actual = linked_list.head.next_node.value
+    #Assert
     assert actual == expected
