@@ -19,7 +19,21 @@ Adds a new node with that value to the head of the list with an O(1) Time perfor
 
 Indicates whether that value exists as a Node’s value somewhere within the list.
 
-**to_string():**
+**__str__():**
 
 Returns: a string representing all the values in the Linked List, formatted as:
 "{ a } -> { b } -> { c } -> NULL"
+
+**append()**
+
+Adds a new node with the given value to the end of the list.
+
+**insert_before()**
+
+Adds a new node with the given new value immediately before the first node that has the value specified.
+
+**insert_after()**
+
+Adds a new node with the given new value immediately after the first node that has the value specified
+
+
