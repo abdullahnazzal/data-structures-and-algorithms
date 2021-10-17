@@ -113,7 +113,7 @@ def test_linked_List_to_string():
     linked_list.insert(1)
     linked_list.insert(2)
     linked_list.insert(3)
-    actual = linked_list.to_string()
+    actual = linked_list.__str__()
 
     # Assert
     assert actual == expected

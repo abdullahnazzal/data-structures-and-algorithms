@@ -57,7 +57,7 @@ class LinkedList:
             self.current=self.current.next_node
         return False
     
-    def to_string(self):
+    def __str__(self):
         """
         To convert Linked List as string formatted
         Arguments: none
