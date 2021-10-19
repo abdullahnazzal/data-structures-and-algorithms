@@ -126,7 +126,7 @@ class LinkedList:
 
     def insert_after(self,next_node,value):
         """
-        insert before
+        insert after
         arguments: value, new value
         Adds a new node with the given new value immediately after the first node that has the value specified
 
@@ -143,24 +143,45 @@ class LinkedList:
             newNode=Node(value)
             newNode.next_node=n.next_node
             n.next_node=newNode
+    def kthFromEnd(self,k):
+        """
+        argument: a number, k, as a parameter.
 
+        Return the node’s value that is k places from the tail of the linked list.
+        You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+        """
+        current=self.head
+        lenght=0
+        while current:
+            current=current.next_node
+            lenght+=1
+        if lenght >= k:
+            current=self.head
+            for i in range (lenght -k-1):
+                current=current.next_node
+        else:
+            return "K is bigger than nodes number"
+        return current.value
 
 linked_list=LinkedList()
-linked_list.insert(6)
+linked_list.insert(2)
 # linked_list.includes(5)
 print(linked_list.includes(6))
 # print(linked_list.head.data)
-linked_list.insert(7)
-linked_list.insert(9)
+linked_list.insert(8)
+linked_list.insert(3)
+linked_list.insert(1)
 # print(linked_list.head.data)
 # linked_list.includes()
 print(linked_list.includes(6))
 # linked_list.print_listedlink()
 # linked_list.to_string()
-linked_list.append(1)
-linked_list.append(2)
+# linked_list.append(1)
+# linked_list.append(2)
 # linked_list.add_before(50,6)
 
 # linked_list.insert_before(9,50)
-linked_list.insert_after(9,100)
+# linked_list.insert_after(9,100)
 print(linked_list.__str__())
+print(linked_list.kthFromEnd(0))

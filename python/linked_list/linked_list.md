@@ -36,4 +36,8 @@ Adds a new node with the given new value immediately before the first node that 
 
 Adds a new node with the given new value immediately after the first node that has the value specified
 
+**kthFromEnd()**
+
+Return the node’s value that is k places from the tail of the linked list.
+
 
