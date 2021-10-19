@@ -164,6 +164,9 @@ class LinkedList:
             return "K is bigger than nodes number"
         return current.value
 
+def zipLists(self,k):
+    pass
+
 linked_list=LinkedList()
 linked_list.insert(2)
 # linked_list.includes(5)
