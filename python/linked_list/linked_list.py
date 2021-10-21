@@ -164,20 +164,91 @@ class LinkedList:
             return "K is bigger than nodes number"
         return current.value
 
-def zipLists(self,k):
-    pass
+    def reverse(self):
+        prev = None
+        current = self.head
+        while(current is not None):
+            next = current.next_node
+            current.next_node = prev
+            prev = current
+            current = next
+        self.head = prev
+
+    def ispalindrome(self):
+        # Temp pointer
+        current = self.head
+    
+        # Declare a stack
+        list = []
+        
+        ispalin = True
+    
+        # Push all elements of the list
+        # to the stack
+        while current != None:
+            list.append(current.value)
+            
+            # Move ahead
+            current = current.next_node
+    
+        # Iterate in the list again and
+        # check by popping from the stack
+        while self.head != None:
+    
+            # Get the top most element
+            i = list.pop()
+            
+            # Check if data is not
+            # same as popped element
+            if self.head.value == i:
+                ispalin = True
+            else:
+                ispalin = False
+                break
+    
+            # Move ahead
+            self.head = self.head.next_node
+            
+        return ispalin
+# def zipLists(linkedlist1,linkedlist2):
+#     frist_ll=linkedlist1.head
+#     second_ll = linkedlist2.head
+#     if not frist_ll and not second_ll:
+#         return "there is no lists"
+#     elif not frist_ll :
+#         return str(linkedlist2)
+#     elif not second_ll:
+#         return str(linkedlist1)
+
+#     temp =''
+#     while frist_ll and second_ll:
+#         if second_ll:
+#         temp = frist_ll.next_node
+#         frist_ll.next_node =second_ll
+#         frist_ll=temp
+
+#         if frist_ll and second_ll:
+#         temp = second_ll.next_node
+#         second_ll.next_node=frist_ll
+#         second_ll=temp
+#     return str(linkedlist1)
 
 linked_list=LinkedList()
-linked_list.insert(2)
-# linked_list.includes(5)
-print(linked_list.includes(6))
-# print(linked_list.head.data)
-linked_list.insert(8)
-linked_list.insert(3)
+# linked_list2=LinkedList()
 linked_list.insert(1)
+# linked_list.includes(5)
+# print(linked_list.includes(6))
+# print(linked_list.head.data)
+linked_list.insert(2)
+linked_list.insert(3)
+linked_list.insert(4)
+linked_list.insert(3)
+linked_list.insert(2)
+linked_list.insert(1)
+print(linked_list.ispalindrome())
 # print(linked_list.head.data)
 # linked_list.includes()
-print(linked_list.includes(6))
+# print(linked_list.includes(6))
 # linked_list.print_listedlink()
 # linked_list.to_string()
 # linked_list.append(1)
@@ -186,5 +257,8 @@ print(linked_list.includes(6))
 
 # linked_list.insert_before(9,50)
 # linked_list.insert_after(9,100)
-print(linked_list.__str__())
-print(linked_list.kthFromEnd(0))
+print(linked_list)
+linked_list.reverse()
+print(linked_list)
+# print(zipLists(linked_list,linked_list2))
+# print(linked_list.kthFromEnd(0))

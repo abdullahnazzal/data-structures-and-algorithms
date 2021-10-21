@@ -9,3 +9,5 @@
 | Challange 03  | [array-binary-search](array-binary-search/README.md)|
 | Challange 05  | [Linked List Implementation](linked_list/linked_list.md)|
 | Challange 06  | [Linked List Implementation](linked_list/linked_list.md)|
+| Challange 10  | [Stack and a Queue](stack_and_queue/stack_queue.md)|
+
