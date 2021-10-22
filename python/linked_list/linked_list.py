@@ -43,14 +43,6 @@ class LinkedList:
         """
         self.head=Node(value,self.head)
         self.current=self.head
-        # newNode=Node(value)
-        # if(self.head):
-        #     self.current=self.head
-        #     while(self.current.next_node):
-        #         self.current=self.current.next_node
-        #     self.current.next_node=newNode
-        # else:
-        #     self.head=newNode
 
     def includes(self,value=None):
         """
@@ -97,8 +89,6 @@ class LinkedList:
                 self.current.next_node=newNode
             else:
                 self.head=newNode
-            # self.head=Node(value,self.head)
-            # self.current=self.head
     def insert_before(self,next_node,value):
         """
         insert before
@@ -146,7 +136,7 @@ class LinkedList:
 
 
 linked_list=LinkedList()
-linked_list.insert(6)
+# linked_list.insert(6)
 # linked_list.includes(5)
 print(linked_list.includes(6))
 # print(linked_list.head.data)
@@ -158,9 +148,9 @@ print(linked_list.includes(6))
 # linked_list.print_listedlink()
 # linked_list.to_string()
 linked_list.append(1)
-linked_list.append(2)
+# linked_list.append(2)
 # linked_list.add_before(50,6)
 
 # linked_list.insert_before(9,50)
-linked_list.insert_after(9,100)
+# linked_list.insert_after(9,100)
 print(linked_list.__str__())
