@@ -1,5 +1,5 @@
 from typing import Any
-from linked_list.linked_list import LinkedList,Node
+from linked_list.linked_list import LinkedList,Node,zipLists
 import pytest
 
 def test_import():
@@ -249,5 +249,40 @@ def test_fail_linked_List_insert_after():
     print(linked_list.__str__())
     #Act
     actual = linked_list.head.next_node.value
+    #Assert
+    assert actual == expected
+
+def test_linked_List_zip():
+    #Arrange
+    newlinked = LinkedList()
+    newlinked2 = LinkedList()
+    newlinked.insert(2)
+    newlinked.insert(3)
+    newlinked.insert(1)
+    newlinked2.insert(4)
+    newlinked2.insert(9)
+    newlinked2.insert(5)
+    expected="{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 2 } -> { 4 } -> NULL"
+    
+    #Act
+    actual = zipLists(newlinked,newlinked2)
+    #Assert
+    assert actual == expected
+
+@pytest.mark.xfail()
+def test_linked_List_zip_fail():
+    #Arrange
+    newlinked = LinkedList()
+    newlinked2 = LinkedList()
+    newlinked.insert(2)
+    newlinked.insert(3)
+    newlinked.insert(1)
+    newlinked2.insert(4)
+    newlinked2.insert(9)
+    newlinked2.insert(5)
+    expected="{ 1 } -> { 3 } -> { 5 } -> { 5 } -> { 9 } -> { 4 } -> NULL"
+    
+    #Act
+    actual = zipLists(newlinked,newlinked2)
     #Assert
     assert actual == expected

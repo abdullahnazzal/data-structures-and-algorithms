@@ -164,27 +164,51 @@ class LinkedList:
             return "K is bigger than nodes number"
         return current.value
 
-def zipLists(self,k):
-    pass
+def zipLists(linkedlist1, linkedlist2):
 
-linked_list=LinkedList()
-linked_list.insert(2)
-# linked_list.includes(5)
-print(linked_list.includes(6))
-# print(linked_list.head.data)
-linked_list.insert(8)
-linked_list.insert(3)
-linked_list.insert(1)
-# print(linked_list.head.data)
-# linked_list.includes()
-print(linked_list.includes(6))
-# linked_list.print_listedlink()
-# linked_list.to_string()
-# linked_list.append(1)
-# linked_list.append(2)
-# linked_list.add_before(50,6)
+    """
+    2 linked lists as Arguments and return zipped Linked List.
 
-# linked_list.insert_before(9,50)
-# linked_list.insert_after(9,100)
-print(linked_list.__str__())
-print(linked_list.kthFromEnd(0))
+    """
+    frist_ll = linkedlist1.head
+    second_ll = linkedlist2.head
+
+    if not frist_ll and not second_ll:
+        return "there is no lists"
+    elif not frist_ll :
+        return str(linkedlist2)
+    elif not second_ll:
+        return str(linkedlist1)
+
+    temp =''
+    while frist_ll and second_ll:
+        if second_ll:
+            temp = frist_ll.next_node
+            frist_ll.next_node =second_ll
+            frist_ll=temp
+
+        if frist_ll and second_ll:
+            temp = second_ll.next_node
+            second_ll.next_node=frist_ll
+            second_ll=temp
+
+    return str(linkedlist1)
+
+
+# # linked_list.to_string()
+
+newlinked = LinkedList()
+newlinked2 = LinkedList()
+newlinked.insert(3)
+newlinked.insert(1)
+# newlinked.insert(1)
+newlinked2.insert(4)
+newlinked2.insert(2)
+# newlinked2.insert(5)
+# newlinked.insert(7)
+# newlinked.insert(8)
+print(newlinked)
+print(newlinked2)
+print(zipLists(newlinked, newlinked2))
+# print(newlinked)
+# print(newlinked2)
