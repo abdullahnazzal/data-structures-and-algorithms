@@ -43,14 +43,7 @@ class LinkedList:
         """
         self.head=Node(value,self.head)
         self.current=self.head
-        # newNode=Node(value)
-        # if(self.head):
-        #     self.current=self.head
-        #     while(self.current.next_node):
-        #         self.current=self.current.next_node
-        #     self.current.next_node=newNode
-        # else:
-        #     self.head=newNode
+        
 
     def includes(self,value=None):
         """
@@ -161,7 +154,7 @@ class LinkedList:
             for i in range (lenght -k-1):
                 current=current.next_node
         else:
-            return "K is bigger than nodes number"
+            raise Exception("K is bigger than nodes number")
         return current.value
 
 linked_list=LinkedList()

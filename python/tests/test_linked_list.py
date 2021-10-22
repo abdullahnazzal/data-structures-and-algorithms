@@ -251,3 +251,30 @@ def test_fail_linked_List_insert_after():
     actual = linked_list.head.next_node.value
     #Assert
     assert actual == expected
+
+def test_Kth():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.insert(2)
+    linked_list.insert(8)
+    linked_list.insert(3)
+    linked_list.insert(1)
+    expected = 2
+    #Act
+    actual = linked_list.kthFromEnd(0)
+    #Assert
+    assert actual == expected
+
+@pytest.mark.xfail()
+def test_Kth_fail():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.insert(2)
+    linked_list.insert(8)
+    linked_list.insert(3)
+    linked_list.insert(1)
+    expected = "K is bigger than nodes number"
+    #Act
+    actual = linked_list.kthFromEnd(8)
+    #Assert
+    assert actual == expected
