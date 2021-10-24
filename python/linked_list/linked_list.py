@@ -43,14 +43,7 @@ class LinkedList:
         """
         self.head=Node(value,self.head)
         self.current=self.head
-        # newNode=Node(value)
-        # if(self.head):
-        #     self.current=self.head
-        #     while(self.current.next_node):
-        #         self.current=self.current.next_node
-        #     self.current.next_node=newNode
-        # else:
-        #     self.head=newNode
+        
 
     def includes(self,value=None):
         """
@@ -97,8 +90,7 @@ class LinkedList:
                 self.current.next_node=newNode
             else:
                 self.head=newNode
-            # self.head=Node(value,self.head)
-            # self.current=self.head
+            
     def insert_before(self,next_node,value):
         """
         insert before
@@ -195,20 +187,32 @@ def zipLists(linkedlist1, linkedlist2):
     return str(linkedlist1)
 
 
-# # linked_list.to_string()
+linked_list=LinkedList()
+# linked_list2=LinkedList()
+linked_list.insert(1)
+# linked_list.includes(5)
+# print(linked_list.includes(6))
+# print(linked_list.head.data)
+# linked_list.insert(2)
+# linked_list.insert(3)
+# linked_list.insert(4)
+# linked_list.insert(3)
+# linked_list.insert(2)
+# linked_list.insert(1)
+# print(linked_list.ispalindrome())
+# print(linked_list.head.data)
+# linked_list.includes()
+# print(linked_list.includes(6))
+# linked_list.print_listedlink()
+# linked_list.to_string()
+# linked_list.append(1)
+# linked_list.append(2)
+# linked_list.add_before(50,6)
 
-newlinked = LinkedList()
-newlinked2 = LinkedList()
-newlinked.insert(3)
-newlinked.insert(1)
-# newlinked.insert(1)
-newlinked2.insert(4)
-newlinked2.insert(2)
-# newlinked2.insert(5)
-# newlinked.insert(7)
-# newlinked.insert(8)
-print(newlinked)
-print(newlinked2)
-print(zipLists(newlinked, newlinked2))
-# print(newlinked)
-# print(newlinked2)
+# linked_list.insert_before(9,50)
+# linked_list.insert_after(9,100)
+# print(linked_list)
+# linked_list.reverse()
+# print(linked_list)
+# print(zipLists(linked_list,linked_list2))
+# print(linked_list.kthFromEnd(0))
