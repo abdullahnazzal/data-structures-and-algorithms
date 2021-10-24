@@ -153,7 +153,7 @@ class LinkedList:
             for i in range (lenght -k-1):
                 current=current.next_node
         else:
-            return "K is bigger than nodes number"
+            raise Exception("K is bigger than nodes number")
         return current.value
 
 def zipLists(linkedlist1, linkedlist2):

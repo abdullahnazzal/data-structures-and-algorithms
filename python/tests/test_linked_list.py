@@ -252,6 +252,33 @@ def test_fail_linked_List_insert_after():
     #Assert
     assert actual == expected
 
+def test_Kth():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.insert(2)
+    linked_list.insert(8)
+    linked_list.insert(3)
+    linked_list.insert(1)
+    expected = 2
+    #Act
+    actual = linked_list.kthFromEnd(0)
+    #Assert
+    assert actual == expected
+
+@pytest.mark.xfail()
+def test_Kth_fail():
+    #Arrange
+    linked_list=LinkedList()
+    linked_list.insert(2)
+    linked_list.insert(8)
+    linked_list.insert(3)
+    linked_list.insert(1)
+    expected = "K is bigger than nodes number"
+    #Act
+    actual = linked_list.kthFromEnd(8)
+    #Assert
+    assert actual == expected
+
 def test_linked_List_zip():
     #Arrange
     newlinked = LinkedList()
@@ -266,7 +293,6 @@ def test_linked_List_zip():
     
     #Act
     actual = zipLists(newlinked,newlinked2)
-    #Assert
     assert actual == expected
 
 @pytest.mark.xfail()
@@ -281,8 +307,6 @@ def test_linked_List_zip_fail():
     newlinked2.insert(9)
     newlinked2.insert(5)
     expected="{ 1 } -> { 3 } -> { 5 } -> { 5 } -> { 9 } -> { 4 } -> NULL"
-    
     #Act
     actual = zipLists(newlinked,newlinked2)
-    #Assert
     assert actual == expected

@@ -1,0 +1,22 @@
+    def insert(self,value):
+        """
+        Adds a new node with that value to the head of the list with an O(1) Time performance.
+
+        Arguments: value
+        Returns: nothing
+        """
+        self.head=Node(value,self.head)
+        self.current=self.head
+        # node =Node(value)
+        # node.next_node=self.head
+        # self.head=node
+        # if node.next_node:
+        #     self.current=node
+        # newNode=Node(value)
+        # if(self.head):
+        #     self.current=self.head
+        #     while(self.current.next_node):
+        #         self.current=self.current.next_node
+        #     self.current.next_node=newNode
+        # else:
+        #     self.head=newNode
