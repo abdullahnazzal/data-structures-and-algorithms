@@ -13,3 +13,7 @@
 | Challange 08  | [linked list zip](linked_list/linked-list-zip.md)|
 | Challange 10  | [Stack and a Queue](stack_and_queue/stack_queue.md)|
 | Challange 11  | [Queue Pseudo](stack_and_queue/stack-queue-pseudo.md)|
+| Challange 12  | [Queue Animal Shelter](stack_and_queue/stack-queue-animal-shelter.md)|
+
+
+
