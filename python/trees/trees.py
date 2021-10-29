@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self,value,left=None,right=None):
         self.value=value
@@ -108,10 +109,46 @@ class Binary_Search_Tree(Binary_Tree):
         Return: nothing
         Adds a new node with that value in the correct location in the binary search tree.
         """
-        pass
-    def contains(self):
+        if not self.root:
+            self.root=Node(value)
+        else:
+            self._add(value,self.root)
+    def _add(self,value,cur_node):
+        if value< cur_node.value:
+            if not cur_node.left:
+                cur_node.left=Node(value)
+            else:
+                self._add(value,cur_node.left)
+        elif value> cur_node.value:
+            if not cur_node.right:
+                cur_node.right=Node(value)
+            else:
+                self._add(value,cur_node.right)
+        else:
+            print("Value is alredy in tree")
+    def contains(self,value):
         """
         Argument: value
         Returns: boolean indicating whether or not the value is in the tree at least once.
         """
-        pass
+        if self.root:
+            is_found=self._contains(value,self.root)
+            if is_found:
+                return True
+            return False
+        else:
+            return None
+    def _contains(self,value,cur_node):
+        if value > cur_node.value and cur_node.right:
+            return self._contains(value,cur_node.right)
+        elif value < cur_node.value and cur_node.left:
+            return self._contains(value,cur_node.left)
+        if value == cur_node.value:
+            return True
+bt=Binary_Tree()
+bst=Binary_Search_Tree()
+bst.add(1)
+bst.add(2)
+bst.add(3)
+bst.add(4)
+print(bst.contains(6))
