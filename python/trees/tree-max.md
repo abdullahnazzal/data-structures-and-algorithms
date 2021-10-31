@@ -2,10 +2,20 @@
 return maximum value stored in the tree.
 
 ## Whiteboard Process
-![Tree Max]()
+![Tree Max](tree-max.PNG)
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+Big O :
+
+Time -->   O(n) 
+
+Space --> O(1)
 
 ## Solution
-<!-- Show how to run your code, and examples of it in action -->
+find_maximum_value()
+
+input --->  2
+           / \
+          4   5
+
+output ---> 5
