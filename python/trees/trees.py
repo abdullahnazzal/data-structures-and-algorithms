@@ -98,6 +98,26 @@ class Binary_Tree:
             output.append(node.value)
         walk(self.root)
         return output
+    def find_maximum_value(self):
+        """
+        
+        Arguments: none
+        Returns: number
+        Find the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+        """
+        max_value = 0
+        def walk(node):
+            nonlocal max_value
+            if node.left:
+                if node.left.value > max_value:
+                    max_value=node.left.value
+                walk(node.left)
+            if node.right:
+                if node.right.value > max_value:
+                    max_value=node.right.value
+                walk(node.right)
+        walk(self.root)
+        return max_value
             
 class Binary_Search_Tree(Binary_Tree):
     """
@@ -145,10 +165,16 @@ class Binary_Search_Tree(Binary_Tree):
             return self._contains(value,cur_node.left)
         if value == cur_node.value:
             return True
+    
+
+
+
 bt=Binary_Tree()
 bst=Binary_Search_Tree()
 bst.add(1)
 bst.add(2)
 bst.add(3)
 bst.add(4)
-print(bst.contains(6))
+bst.add(15)
+bst.add(10)
+print(bst.find_maximum_value())
