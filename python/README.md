@@ -16,6 +16,11 @@
 | Challange 12  | [Queue Animal Shelter](stack_and_queue/stack-queue-animal-shelter.md)|
 | Challange 13  | [Stack Queue Brackets](stack_and_queue/stack-queue-brackets.md)|
 | Challange 15  | [Binary Tree and BST Implementation](trees/trees.md)|
+| Challange 16  | [Tree Max](trees/tree-max.md)|
+| Challange 17  | [Breadth First](trees/tree-breadth-first.md)|
+
+
+trees/tree-breadth-first.md
 
 
 
