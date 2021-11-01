@@ -1,64 +1,24 @@
 
 class Node:
-    def __init__(self,value,left=None,right=None):
+    def __init__(self,value,next_node=None,left=None,right=None):
         self.value=value
         self.left=None
         self.right=None
-
+        self.next_node=None
 class Queue:
-    
-    def __init__(self):
-        self.front=None
-        self.rear=None
+  def __init__(self, collection=[]):
+    self.data = collection
 
-    def enqueue(self,value):
-        """
-        adds a new node with that value to the back of the queue with an O(1) Time performance.
-        """
-        node=Node(value)
-        if not self.rear:
-            self.front=node
-            self.rear=node
-        else:
-            self.rear.next_node=node
-            self.rear=node
+  def peek(self):
+    if len(self.data):
+      return True
+    return False
     
-    def dequeue(self):
-        """
-        Returns: the value from node from the front of the queue.
-        Removes the node from the front of the queue.
-        Should raise exception when called on empty queue.
-        """
-        if self.front:
-            temp=self.front
-            self.front=self.front.next_node
-            temp.next_node=None
-            return temp.value
-        else:
-            raise Exception("The queue is empty")
+  def enqueue(self,item):
+    self.data.append(item)
     
-    def peek(self):
-        """
-        Returns: Value of the node located at the front of the queue.
-        Should raise exception when called on empty stack.
-        """
-        if self.front:
-            return self.front.value
-        else:
-            raise Exception("The queue is empty")
-    
-    def is_Empty(self):
-        """
-        Returns: Boolean indicating whether or not the queue is empty
-        """
-        if self.front:
-            return True
-        else:
-            return False
-
-
-
-    
+  def dequeue(self):
+    return self.data.pop(0)
 class Binary_Tree:
     """
     
@@ -168,13 +128,43 @@ class Binary_Search_Tree(Binary_Tree):
     
 
 
+def breadth_first(tree):
+    """
+    Return list of all values in the tree using a Breadth-first approach.
+    """
+    output = []
+    breadth = Queue()
+    breadth.enqueue(tree.root)
+    # print(tree.root.value)
+    while breadth.peek():
+        front = breadth.dequeue()
+        print(front.value)
+        output.append(front.value)
+        # output.append(front.value)
+        if front.left:
+            print("left")
+            breadth.enqueue(front.left)
+        
+        if front.right:
+            breadth.enqueue(front.right)
 
+    return output
 bt=Binary_Tree()
 bst=Binary_Search_Tree()
-bst.add(-50)
-bst.add(-2)
-bst.add(-3)
-bst.add(-1)
-bst.add(-15)
-bst.add(-10)
-print(bst.find_maximum_value())
+# bst.add(50)
+# bst.add(2)
+# bst.add(3)
+# bst.add(1)
+# bst.add(15)
+# bst.add(10)
+a_node = Node(1)
+b_node = Node(2)
+c_node = Node(50)
+d_node = Node(20)
+a_node.left = b_node
+a_node.right = c_node
+b_node.left = d_node
+
+bt.root=a_node
+# print(bst.find_maximum_value())
+print(breadth_first(bt))

@@ -1,4 +1,4 @@
-from trees.trees import Node,Binary_Tree,Binary_Search_Tree
+from trees.trees import Node,Binary_Tree,Binary_Search_Tree,breadth_first
 def test_empty_tree():
     """
     Can successfully instantiate an empty tree
@@ -143,5 +143,29 @@ def test_find_maximum_value_in_tree():
     expected = 50
     # set actual to return maximum value.
     actual = tree.find_maximum_value()
+    # assert actual is same as expected
+    assert actual == expected
+
+def test_breadth_first():
+    """
+    Can successfully return list of all values in the tree using a Breadth-first approach.
+    """
+    # Arrange
+    # Create tree instance
+    tree = Binary_Tree()
+    # Create Nodes for 1,2,50,20
+    a_node = Node(1)
+    b_node = Node(2)
+    c_node = Node(50)
+    d_node = Node(20)
+    a_node.left = b_node
+    a_node.right = c_node
+    b_node.left = d_node
+    # Add Root node to tree
+    tree.root=a_node
+    # set expected value
+    expected = [1,2,50,20]
+    # set actual to return list of all values.
+    actual = breadth_first(tree)
     # assert actual is same as expected
     assert actual == expected
