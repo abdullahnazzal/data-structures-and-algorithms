@@ -58,6 +58,7 @@ class Binary_Tree:
             output.append(node.value)
         walk(self.root)
         return output
+    
     def find_maximum_value(self):
         """
         
@@ -78,7 +79,9 @@ class Binary_Tree:
                 walk(node.right)
         walk(self.root)
         return max_value
-            
+
+    
+
 class Binary_Search_Tree(Binary_Tree):
     """
     This class should be a sub-class (or your languages equivalent) of the Binary Tree Class, with the following additional methods : Add , Contains
@@ -138,17 +141,69 @@ def breadth_first(tree):
     # print(tree.root.value)
     while breadth.peek():
         front = breadth.dequeue()
-        print(front.value)
+        # print(front.value)
         output.append(front.value)
         # output.append(front.value)
         if front.left:
-            print("left")
+            # print("left")
             breadth.enqueue(front.left)
         
         if front.right:
             breadth.enqueue(front.right)
 
     return output
+
+def fizz_buzz_tree(k_ary):
+        """ 
+        Arguments: k-ary tree
+        Return: new k-ary tree
+        """
+        new_tree = Binary_Tree()
+        new_tree.root=k_ary.root
+        if new_tree.root.value % 15 == 0:
+            new_tree.root=Node("FizzBuzz")
+        elif new_tree.root.value % 3 == 0:
+            new_tree.root=Node("Fizz")
+        elif new_tree.root.value % 5 == 0:
+            new_tree.root=Node("Buzz")
+        def walk(node):
+            change=None
+            if node.left:
+                print("left")
+                if int(node.left.value) % 15 == 0:
+                    change = Node("FizzBuzz")
+                    new_tree.root.left=change
+                elif int(node.left.value) % 3 == 0:
+                    change = Node("Fizz")
+                    new_tree.root.left=change
+                elif int(node.left.value) % 5 == 0:
+                    print("int(node.left.value)",int(node.left.value))
+                    change = Node("Buzz")
+                    new_tree.root.left=change
+                else:
+                    print("node.left.value",node.left.value)
+                    new_tree.root.left=node.left
+                walk(node.left)
+            if node.right:
+                print("right")
+                if int(node.right.value) % 15 == 0:
+                    change = Node("FizzBuzz")
+                    new_tree.root.right=change
+                elif int(node.right.value) % 3 == 0:
+                    change = Node("Fizz")
+                    new_tree.root.right=change
+                elif int(node.right.value) % 5 == 0:
+                    print("int(node.right.value)",int(node.right.value))
+                    change = Node("Buzz")
+                    new_tree.root.right=change
+                else:
+                    new_tree.root.right=node.right
+                    
+                walk(node.right)
+        walk(k_ary.root)
+
+        return new_tree
+
 bt=Binary_Tree()
 bst=Binary_Search_Tree()
 # bst.add(50)
@@ -157,14 +212,21 @@ bst=Binary_Search_Tree()
 # bst.add(1)
 # bst.add(15)
 # bst.add(10)
-a_node = Node(1)
+a_node = Node(57)
 b_node = Node(2)
-c_node = Node(50)
-d_node = Node(20)
+c_node = Node(57)
+d_node = Node(25)
 a_node.left = b_node
 a_node.right = c_node
 b_node.left = d_node
 
 bt.root=a_node
 # print(bst.find_maximum_value())
+# print(breadth_first(bt))
 print(breadth_first(bt))
+f=fizz_buzz_tree(bt)
+
+print(breadth_first(f))
+# print(fizz_buzz_tree(bt))
+
+

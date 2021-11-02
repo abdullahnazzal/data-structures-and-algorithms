@@ -18,9 +18,10 @@
 | Challange 15  | [Binary Tree and BST Implementation](trees/trees.md)|
 | Challange 16  | [Tree Max](trees/tree-max.md)|
 | Challange 17  | [Breadth First](trees/tree-breadth-first.md)|
+| Challange 18  | [Tree Fizz Buzz](trees/tree-fizz-buzz.md)|
 
 
-trees/tree-breadth-first.md
+
 
 
 
