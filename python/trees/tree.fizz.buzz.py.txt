@@ -1,0 +1,75 @@
+def fizz_buzz(node):
+    if node.value % 15 == 0:
+        return "FizzBuzz"
+    if node.value % 3 == 0:
+        return "Fizz"
+    if node.value % 5 == 0:
+        return "Buzz"
+    else:
+        return str(node.value)
+
+def fizz_buzz_tree3(k_arr):
+    if not k_arr.root:
+        return []
+    new_tree = Binary_Tree()
+    def walk(node):
+        new_tree.output=new_tree.output+[fizz_buzz(node)]
+        if node.left:
+            walk(node.left)
+        if node.right:
+            walk(node.right)
+        return new_tree.output
+    return walk(k_arr.root)
+
+
+
+def fizz_buzz_tree2(k_ary):
+        """
+        Arguments: k-ary tree
+        Return: new k-ary tree
+        """
+        new_tree = Binary_Tree()
+        new_tree.root=k_ary.root
+        if new_tree.root.value % 15 == 0:
+            new_tree.root=Node("FizzBuzz")
+        elif new_tree.root.value % 3 == 0:
+            new_tree.root=Node("Fizz")
+        elif new_tree.root.value % 5 == 0:
+            new_tree.root=Node("Buzz")
+        def walk(node):
+            change=None
+            if node.left:
+                print("left")
+                if int(node.left.value) % 15 == 0:
+                    change = Node("FizzBuzz")
+                    new_tree.root.left=change
+                elif int(node.left.value) % 3 == 0:
+                    change = Node("Fizz")
+                    new_tree.root.left=change
+                elif int(node.left.value) % 5 == 0:
+                    print("int(node.left.value)",int(node.left.value))
+                    change = Node("Buzz")
+                    new_tree.root.left=change
+                else:
+                    print("node.left.value",node.left.value)
+                    new_tree.root.left=node.left
+                walk(node.left)
+            if node.right:
+                print("right")
+                if int(node.right.value) % 15 == 0:
+                    change = Node("FizzBuzz")
+                    new_tree.root.right=change
+                elif int(node.right.value) % 3 == 0:
+                    change = Node("Fizz")
+                    new_tree.root.right=change
+                elif int(node.right.value) % 5 == 0:
+                    print("int(node.right.value)",int(node.right.value))
+                    change = Node("Buzz")
+                    new_tree.root.right=change
+                else:
+                    new_tree.root.right=node.right
+
+                walk(node.right)
+        walk(k_ary.root)
+
+        return new_tree

@@ -1,4 +1,4 @@
-from trees.trees import Node,Binary_Tree,Binary_Search_Tree,breadth_first
+from trees.trees import Node,Binary_Tree,Binary_Search_Tree,breadth_first,NodeK
 def test_empty_tree():
     """
     Can successfully instantiate an empty tree
@@ -167,5 +167,36 @@ def test_breadth_first():
     expected = [1,2,50,20]
     # set actual to return list of all values.
     actual = breadth_first(tree)
+    # assert actual is same as expected
+    assert actual == expected
+
+def fizz_buzz_tree():
+    """
+    Can successfully return list of all values in the tree using a Breadth-first approach.
+    """
+    # Arrange
+    root = NodeK(57)
+
+    node1 = NodeK(15)
+    root.children.append(node1)
+    node1.children.append(NodeK(12))
+    node1.children.append(NodeK(5))
+    node1.children.append(NodeK(6))
+    node1.parent=root
+
+    node2 = NodeK(8)
+    root.add_child(node2)
+    node2.add_child(NodeK(9))
+    node2.add_child(NodeK(4))
+    node2.add_child(NodeK(5))
+
+    node3 = NodeK(11)
+    root.add_child(node3)
+    node3.add_child(NodeK(687))
+    node3.add_child(NodeK(98))
+    # set expected value
+    expected = ['Fizz', 12, 'Buzz', 'Fizz', 6, 'Fizz', 9, 4, 'Buzz', 'Fizz', 687, 98]
+    # set actual to return list of all values.
+    actual = root.fizz_buzz_tree()
     # assert actual is same as expected
     assert actual == expected
