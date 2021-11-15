@@ -16,8 +16,5 @@
 | Challange 12  | [Queue Animal Shelter](stack_and_queue/stack-queue-animal-shelter.md)|
 | Challange 13  | [Stack Queue Brackets](stack_and_queue/stack-queue-brackets.md)|
 | Challange 15  | [Binary Tree and BST Implementation](trees/trees.md)|
-
-
-
-
-
+| Challange 27  | [Insertion Sort](insertion_sort/README.md)|
+| Challange 27  | [Merge Sort](merge_sort/README.md)|
