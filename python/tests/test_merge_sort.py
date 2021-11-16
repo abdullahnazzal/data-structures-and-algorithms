@@ -12,7 +12,7 @@ def test_merge_sort():
 @pytest.mark.xfail()
 def test_insertion_sort_fail():
     """
-    Can successfully do insertion sort on array
+    Can't successfully do merge sort on array
     """
     expected = [4,8,15,16,42,23]
     actual =merge_sort([8,4,23,42,16,15])
