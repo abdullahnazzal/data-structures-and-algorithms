@@ -19,6 +19,6 @@
 | Challange 26  | [Insertion Sort](insertion_sort/README.md)|
 | Challange 27  | [Merge Sort](merge_sort/README.md)|
 | Challange 28  | [Quick Sort](quick_sort/README.md)|
-
+| Challange 30  | [Hash Map](hashmap/README.md)|
 
 
