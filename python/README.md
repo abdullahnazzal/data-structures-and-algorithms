@@ -20,5 +20,4 @@
 | Challange 27  | [Merge Sort](merge_sort/README.md)|
 | Challange 28  | [Quick Sort](quick_sort/README.md)|
 | Challange 30  | [Hash Map](hashmap/README.md)|
-
-
+| Challange 31  | [Hash Map](hashmap/repeated_word.md)|

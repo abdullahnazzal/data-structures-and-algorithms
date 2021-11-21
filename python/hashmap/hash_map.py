@@ -3,6 +3,9 @@ The implementation of Node class, Linked list class, and Hashmap class.
 """
 
 
+import re
+
+
 class Node:
     def __init__(self, value=None, next_=None):
         """
@@ -105,11 +108,28 @@ class HashTable:
         # return None
         return False
 
-h = HashTable()
-print(h._HashTable__hash("d"))
-print(h.get("d"))
-print(h.add("Abdullah","079"))
-print(h.get("Abdullah"))
-print(h.contains("Abdullafh"))
+def repeated_word(words):
+    arr = re.sub("[^\w' ]",'',words).lower().split(" ")
+    hash = HashTable()
+    for i in arr:
+        if hash.contains(i):
+            return i
+        hash.add(i,i)
+    return "None"
 
+x=repeated_word("Once upon a time, there was a brave princess who...")
+print(x)
+# h = HashTable()
+# # print(h._HashTable__hash("d"))
+# # print(h.get("d"))
+# # print(h.add("Abdullah","079"))
+# # print(h.get("Abdullah"))
+# # print(h.contains("Abdullafh"))
 
+# # h.get("Abdullah")
+# h.add("Abdullah","079")
+# h.add("Ahmad","079")
+# h.add("Ali","079")
+# h.add("Khalad","079")
+# h.add("Dairio","079")
+# print(h._HashTable__buckets)
