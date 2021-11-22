@@ -117,8 +117,8 @@ def repeated_word(words):
         hash.add(i,i)
     return "None"
 
-x=repeated_word("Once upon a time, there was a brave princess who...")
-print(x)
+# x=repeated_word("Once upon a time, there was a brave princess who...")
+# print(x)
 # h = HashTable()
 # # print(h._HashTable__hash("d"))
 # # print(h.get("d"))

@@ -6,7 +6,7 @@ class Node:
         self.right=None
 
 class Queue:
-    
+
     def __init__(self):
         self.front=None
         self.rear=None
@@ -22,7 +22,7 @@ class Queue:
         else:
             self.rear.next_node=node
             self.rear=node
-    
+
     def dequeue(self):
         """
         Returns: the value from node from the front of the queue.
@@ -36,7 +36,7 @@ class Queue:
             return temp.value
         else:
             raise Exception("The queue is empty")
-    
+
     def peek(self):
         """
         Returns: Value of the node located at the front of the queue.
@@ -46,7 +46,7 @@ class Queue:
             return self.front.value
         else:
             raise Exception("The queue is empty")
-    
+
     def is_Empty(self):
         """
         Returns: Boolean indicating whether or not the queue is empty
@@ -58,10 +58,10 @@ class Queue:
 
 
 
-    
+
 class Binary_Tree:
     """
-    
+
     """
     def __init__(self):
         self.root=None
@@ -76,7 +76,7 @@ class Binary_Tree:
                 walk(node.right)
         walk(self.root)
         return output
-    
+
     def in_order(self):
         output = []
         def walk(node):
@@ -87,7 +87,7 @@ class Binary_Tree:
                 walk(node.right)
         walk(self.root)
         return output
-    
+
     def post_order(self):
         output = []
         def walk(node):
@@ -98,7 +98,7 @@ class Binary_Tree:
             output.append(node.value)
         walk(self.root)
         return output
-            
+
 class Binary_Search_Tree(Binary_Tree):
     """
     This class should be a sub-class (or your languages equivalent) of the Binary Tree Class, with the following additional methods : Add , Contains
@@ -145,10 +145,10 @@ class Binary_Search_Tree(Binary_Tree):
             return self._contains(value,cur_node.left)
         if value == cur_node.value:
             return True
-bt=Binary_Tree()
-bst=Binary_Search_Tree()
-bst.add(1)
-bst.add(2)
-bst.add(3)
-bst.add(4)
-print(bst.contains(6))
+# bt=Binary_Tree()
+# bst=Binary_Search_Tree()
+# bst.add(1)
+# bst.add(2)
+# bst.add(3)
+# bst.add(4)
+# print(bst.contains(6))
