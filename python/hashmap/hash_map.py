@@ -79,7 +79,7 @@ class HashTable:
                 if current.value[0] == key:
                     # return the value of the node with the mathcing key
                     return current.value[1]
-            current = current.next
+                current = current.next
 
         # return None
         return None
@@ -103,7 +103,7 @@ class HashTable:
                 if current.value[0] == key:
                     # return the value of the node with the mathcing key
                     return True
-            current = current.next
+                current = current.next
 
         # return None
         return False
@@ -120,11 +120,14 @@ def repeated_word(words):
 # x=repeated_word("Once upon a time, there was a brave princess who...")
 # print(x)
 # h = HashTable()
-# # print(h._HashTable__hash("d"))
-# # print(h.get("d"))
-# # print(h.add("Abdullah","079"))
-# # print(h.get("Abdullah"))
-# # print(h.contains("Abdullafh"))
+# print(h._HashTable__hash("d"))
+# h.add("cloud","00")
+# h.add("could","00")
+
+# h.add("Abdullah","079")
+# print(h.get("could"))
+# h.get("Abdullah")
+# print(h.contains("cloud"))
 
 # # h.get("Abdullah")
 # h.add("Abdullah","079")

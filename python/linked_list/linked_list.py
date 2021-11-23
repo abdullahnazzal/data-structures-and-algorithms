@@ -17,9 +17,9 @@ class Node:
 class LinkedList:
     """
     A class for creating instances of a Linked List.
-  
+
     Attributes defined here:
-    
+
     head: Node | None
     current: head | head
 
@@ -43,7 +43,7 @@ class LinkedList:
         """
         self.head=Node(value,self.head)
         self.current=self.head
-        
+
 
     def includes(self,value=None):
         """
@@ -57,7 +57,7 @@ class LinkedList:
                 return True
             self.current=self.current.next_node
         return False
-    
+
     def __str__(self):
         """
         To convert Linked List as string formatted
@@ -72,7 +72,7 @@ class LinkedList:
             self.current=self.current.next_node
             if self.current == None:
                 string_list+="NULL"
-        
+
         return string_list
 
     def append(self,value):
@@ -90,7 +90,7 @@ class LinkedList:
                 self.current.next_node=newNode
             else:
                 self.head=newNode
-            
+
     def insert_before(self,next_node,value):
         """
         insert before
@@ -98,7 +98,7 @@ class LinkedList:
         Adds a new node with the given new value immediately before the first node that has the value specified
         """
         if self.head is None:
-            return 
+            return
         if self.head.value== next_node:
             newNode=Node(value)
             newNode.next_node=self.head
@@ -124,7 +124,7 @@ class LinkedList:
 
         """
         n=self.head
-        
+
         while n is not None:
             if n.value==next_node:
                 break
@@ -155,6 +155,32 @@ class LinkedList:
         else:
             raise Exception("K is bigger than nodes number")
         return current.value
+    def append2(self,value):
+        new_node = Node(value)
+        if self.head:
+            self.current=self.head
+            while self.current.next_node:
+                print(self.current.value)
+                self.current=self.current.next_node
+            self.current.next_node= new_node
+        else:
+                self.head=new_node
+
+
+
+
+linked_list=LinkedList()
+# linked_list2=LinkedList()
+linked_list.insert(1)
+linked_list.insert(4)
+
+print(linked_list)
+# linked_list.includes(5)
+linked_list.append2(6)
+# print(linked_list.append2(6))
+print(linked_list.head.value)
+print(linked_list)
+
 
 def zipLists(linkedlist1, linkedlist2):
 
@@ -187,12 +213,6 @@ def zipLists(linkedlist1, linkedlist2):
     return str(linkedlist1)
 
 
-linked_list=LinkedList()
-# linked_list2=LinkedList()
-linked_list.insert(1)
-# linked_list.includes(5)
-# print(linked_list.includes(6))
-# print(linked_list.head.data)
 # linked_list.insert(2)
 # linked_list.insert(3)
 # linked_list.insert(4)
