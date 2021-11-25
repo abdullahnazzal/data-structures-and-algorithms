@@ -117,6 +117,36 @@ def repeated_word(words):
         hash.add(i,i)
     return "None"
 
+def unique_characters(words):
+    words = words.replace(" ","").lower()
+    arr = [char for char in words]
+    hash = HashTable()
+    for i in arr:
+        if hash.contains(i):
+            return False
+        hash.add(i,i)
+    return True
+
+# x=unique_characters("I love catS")
+# print(x)
+
+def common_word(words):
+    arr = re.sub("[^\w' ]",'',words).lower().split(" ")
+    hash = HashTable()
+    counter = {}
+    for i in arr:
+        print(i)
+        if hash.contains(i):
+            if i in counter:
+                counter[i] += 1
+            else:
+                counter[i]=1
+        hash.add(i,i)
+    print(counter)
+    return "None"
+
+# x=common_word("Once upon a time, there was a brave upon a princess who...")
+# print(x)
 # x=repeated_word("Once upon a time, there was a brave princess who...")
 # print(x)
 # h = HashTable()
