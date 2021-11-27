@@ -145,6 +145,32 @@ def common_word(words):
     print(counter)
     return "None"
 
+def left_join(map1,map2):
+    """
+
+    The first parameter is a hashmap that has word strings as keys, and a synonym of the key as values.
+    The second parameter is a hashmap that has word strings as keys, and antonyms of the key as values.
+    Return: The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic
+    """
+    if  not len(map1._HashTable__buckets)  and not len(map1._HashTable__buckets) :
+        return []
+    arr = []
+    for i in range(len(map1._HashTable__buckets)):
+        if map1._HashTable__buckets[i]:
+            if map2.contains(map1._HashTable__buckets[i].head.value[0]):
+                arr.append([map1._HashTable__buckets[i].head.value[0],map2._HashTable__buckets[i].head.value[1],map1._HashTable__buckets[i].head.value[1]])
+            else:
+                arr.append([map1._HashTable__buckets[i].head.value[0],map2._HashTable__buckets[i].head.value[1],None])
+    return arr
+
+# ht1 = HashTable()
+# ht1.add("hi","h")
+# ht1.add("hello","he")
+# ht2 = HashTable()
+# ht2.add("hi","hh")
+# ht2.add("hello","hel")
+# x = left_join(ht1,ht2)
+# print(x)
 # x=common_word("Once upon a time, there was a brave upon a princess who...")
 # print(x)
 # x=repeated_word("Once upon a time, there was a brave princess who...")
