@@ -192,3 +192,23 @@ def left_join(map1,map2):
 # h.add("Khalad","079")
 # h.add("Dairio","079")
 # print(h._HashTable__buckets)
+
+x=10
+y=5
+# print("x= ",x)
+# print("y= ",y)
+# x=x+y
+# y=x-y
+# print("x= ",x)
+# print("y= ",y)
+# ------------------
+# x=x-y
+# ##  x,y=y,x
+# print("x= ",x)
+# print("y= ",y)
+# ----------------
+# x =[x,y]
+# y= x[0]
+# x=x[1]
+# print("x= ",x)
+# print("y= ",y)

@@ -17,10 +17,10 @@ class Queue:
         self.dq = deque()
 
     def enqueue(self, value):
-        self.dq.appendLeft(value)
+        self.dq.appendleft(value)
 
     def dequeue(self):
-        self.dq.pop()
+        return self.dq.pop()
 
     def __len__(self):
         return len(self.dq)
@@ -106,6 +106,12 @@ class Graph:
         return self.__adjacency_list.get(vertex, [])
 
     def breadth_first_search(self, start_vertex, action=(lambda vertex: None)):
+        """
+        Arguments: Node
+        Return: A collection of nodes in the order they were visited.
+        Display the collection
+        """
+        output = []
         queue = Queue()
         visited = set()
 
@@ -115,11 +121,17 @@ class Graph:
         while len(queue):
             current_vertex = queue.dequeue()
             action(current_vertex)
+            output.append(current_vertex.value)
 
-            neighbors = self.get_neigbors(current_vertex)
+            neighbors = self.get_neighbors(current_vertex)
 
             for edge in neighbors:
                 neighbor = edge.vertex
-                if neighbour not in visited:
+                if neighbor not in visited:
                     visited.add(neighbor)
-                    queue.enqueue(neighbour)
+                    queue.enqueue(neighbor)
+        return output
+
+
+
+# print(graph.breadth_first_search(v1))
