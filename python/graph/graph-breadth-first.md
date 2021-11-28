@@ -9,8 +9,21 @@ As a refresher of what breadth first actually means here it is: Breadth first tr
 ![Graph Breadth First](graph-breadth-first.png)
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+Big O :
+
+Time -->  O(n)
+
+Space --> O(1)
 
 ## Solution
-<!-- Show how to run your code, and examples of it in action -->
 
+INPUT ==>
+
+![Graph](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-36/graph.PNG)
+
+OUTPUT ==>
+
+`graphs.breadth_first_search(vertex)`
+
+`['Pandora', 'Arendelle', 'Metroville', 'Monstroplolis', 'Narnia', 'Naboo']`
