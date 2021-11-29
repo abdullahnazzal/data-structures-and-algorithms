@@ -12,6 +12,9 @@ class Vertex:
         """
         self.value = value
 
+    def __str__(self) :
+        return str(self.value)
+
 class Queue:
     def __init__(self):
         self.dq = deque()
@@ -66,7 +69,7 @@ class Graph:
         """
         Initalization for a hashmap to hold the vertices
         """
-        self.__adjacency_list = {}
+        self._adjacency_list = {}
 
     def add_node(self, value):
         """
@@ -76,22 +79,21 @@ class Graph:
         """
         # new node
         v = Vertex(value)
-        self.__adjacency_list[v] = []
+        v = str(v)
+        self._adjacency_list[v] = []
         return v
 
     def size(self):
-        return len(self.__adjacency_list)
+        return len(self._adjacency_list)
 
     def add_edge(self, start_vertex, end_vertex, weight=0):
         """Adds an edge to the graph"""
-        if start_vertex not in self.__adjacency_list:
+        if start_vertex not in self._adjacency_list:
             raise KeyError("Start Vertex not found in graph")
 
-        if end_vertex not in self.__adjacency_list:
+        if end_vertex not in self._adjacency_list:
             raise KeyError("End Vertex not found in graph")
-
-        edge = Edge(end_vertex, weight)
-        self.__adjacency_list[start_vertex].append(edge)
+        self._adjacency_list[start_vertex].append((str(end_vertex), weight))
 
     def get_nodes(self):
         """
@@ -99,11 +101,12 @@ class Graph:
         Arguments: None
         return: All nodes
         """
-        return self.__adjacency_list.keys()
+        return self._adjacency_list.keys()
 
     def get_neighbors(self, vertex):
         """ """
-        return self.__adjacency_list.get(vertex, [])
+        # return self._adjacency_list.get(vertex, [])
+        return self._adjacency_list[vertex]
 
     def breadth_first_search(self, start_vertex, action=(lambda vertex: None)):
         """
@@ -131,3 +134,26 @@ class Graph:
                     visited.add(neighbor)
                     queue.enqueue(neighbor)
         return output
+
+def business_trip(graph,cites:list):
+    """
+    Arguments: graph, array of city names
+    Return: cost or null
+
+    Determine whether the trip is possible with direct flights, and how much it would cost.
+    """
+    sum =0
+    flag = False
+    for i in range(len(cites)-1):
+        neighbors = graph._adjacency_list[cites[i]]
+        for neighbor in neighbors:
+            if cites[i+1] == neighbor[0]:
+                sum +=neighbor[1]
+                flag = True
+                break
+            else:
+                sum +=0
+                flag = False
+    if not flag:
+        return False,'$0'
+    return True,'$'+str(sum)

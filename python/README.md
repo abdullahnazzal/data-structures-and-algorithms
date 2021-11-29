@@ -24,3 +24,6 @@
 | Challange 33  | [Hashmap Left Join](hashmap/hashmap-left-join.md)|
 | Challange 35  | [Graph](graph/README.md)|
 | Challange 35  | [Graph Breadth First](graph/graph-breadth-first.md)|
+| Challange 35  | [Graph Business Trip](graph/graph-business-trip.md)|
+
+
